@@ -1,0 +1,6 @@
+title: Room Displays
+views:
+  - !include
+    - lovelace_gen
+    - lovelace/views/_test_view.yaml
+    - !include lovelace/rooms/test.yaml

@@ -1,0 +1,88 @@
+# ================================
+# Home Assistant + HACS .gitignore
+# Safe for public GitHub
+# ================================
+
+# --- HA internals & state (NEVER commit) ---
+.storage/
+.cloud/
+home-assistant.log
+home-assistant_v2.db*
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# --- Secrets / credentials (NEVER commit) ---
+secrets.yaml
+secrets*.yaml
+.secrets/
+*.pem
+*.crt
+*.key
+*.p12
+*.der
+*.csr
+*.pfx
+*.ovpn
+*.enc
+*.token
+*.cred
+*.bak
+
+# --- Backups / snapshots / archives ---
+backup/
+backups/
+*.tar
+*.tgz
+*.gz
+*.zip
+
+# --- HACS frontend caches & sources (optional to ignore) ---
+www/community/**/.git
+www/community/**/.github
+www/community/**/node_modules/
+www/community/**/src/
+www/community/**/rollup.config*
+# If you don't want to version HACS assets at all, uncomment:
+# www/community/
+
+# --- Editor / OS clutter ---
+.vscode/
+.vscode-server/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Python caches (custom_components/scripts) ---
+__pycache__/
+*.pyc
+.custom_components/**/__pycache__/
+custom_components/**/.pytest_cache/
+custom_components/**/.mypy_cache/
+
+# --- Node/Frontend build outputs (if you build cards locally) ---
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-error.log*
+
+# --- Add-on / integration data that may include keys ---
+share/**/coordinator_backup*.json
+share/**/state.json
+share/**/keys/
+share/**/secret*.yaml
+share/**/secrets/
+share/**/.env
+*.env
+
+# --- Media (keep repo light; keep placeholder with .gitkeep) ---
+media/**
+!media/.gitkeep

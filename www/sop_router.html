@@ -1,0 +1,41 @@
+<!-- /config/www/sop_router.html -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body style="margin:0">
+    <script>
+      (function () {
+        // >>> Set your default PDF here (served from /config/www/sop/)
+        const DEFAULT_FILE = "/local/sop/Genoa-SOP.pdf";
+        // Optional default viewer hash (zoom, page, etc.)
+        const DEFAULT_ZOOM = "page-fit"; // or "page-actual", "auto", "125", etc.
+
+        // Read query params from the top window (the Lovelace view) or this frame
+        let search = "";
+        try {
+          search = (window.top && window.top.location && window.top.location.search) || "";
+        } catch (e) {}
+        if (!search) search = window.location.search || "";
+
+        const params = new URLSearchParams(search);
+        const file = params.get("file") || DEFAULT_FILE;
+        const zoom = params.get("zoom") || DEFAULT_ZOOM;
+        const page = params.get("page");
+        const pagemode = params.get("pagemode"); // e.g., "none", "thumbs", "bookmarks"
+
+        // Build viewer URL
+        let hash = `#zoom=${encodeURIComponent(zoom)}`;
+        if (page) hash += `&page=${encodeURIComponent(page)}`;
+        if (pagemode) hash += `&pagemode=${encodeURIComponent(pagemode)}`;
+
+        const viewer = `/local/pdfjs/web/viewer.html?file=${encodeURIComponent(file)}${hash}`;
+
+        // Load PDF.js viewer in this iframe
+        window.location.replace(viewer);
+      })();
+    </script>
+  </body>
+</html>

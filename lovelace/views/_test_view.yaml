@@ -1,0 +1,5 @@
+title: {{ room_name }}
+path: {{ path }}
+cards:
+  - type: markdown
+    content: "Hello {{ room_name }}!"
