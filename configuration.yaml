@@ -1,4 +1,3 @@
-
 # Loads default set of integrations. Do not remove.
 default_config:
 
@@ -8,54 +7,7 @@ frontend:
 
 automation: !include automations.yaml
 script: !include scripts.yaml
-scene: !include scenes.yaml 
+scene: !include scenes.yaml
 
-
-lovelace:
-  mode: yaml
-  resources:
-    # ---- CORE STRUCTURE & LAYOUT ----
-    - url: /hacsfiles/lovelace-layout-card/layout-card.js
-      type: module
-    - url: /hacsfiles/stack-in-card/stack-in-card.js
-      type: module
-    - url: /hacsfiles/lovelace-card-mod/card-mod.js
-      type: module
-    - url: /hacsfiles/decluttering-card/decluttering-card.js
-      type: module
-    - url: /hacsfiles/lovelace_gen/lovelace_gen.js
-      type: module
-    - url: /hacsfiles/bootstrap-grid-card/bootstrap-grid-card.js
-      type: module
-
-    # ---- ENTITY / CONTROL CARDS ----
-    - url: /hacsfiles/button-card/button-card.js
-      type: module
-    - url: /hacsfiles/slider-button-card/slider-button-card.js
-      type: module
-    - url: /hacsfiles/auto-entities/auto-entities.js
-      type: module
-    - url: /hacsfiles/flex-table-card/flex-table-card.js
-      type: module
-    - url: /hacsfiles/config-template-card/config-template-card.js
-      type: module
-    - url: /hacsfiles/swipe-card/swipe-card.js
-      type: module
-
-    # ---- VISUALIZATION / CHARTS ----
-    - url: /hacsfiles/apexcharts-card/apexcharts-card.js
-      type: module
-    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
-      type: module
-
-    # ---- MUSHROOM SUITE ----
-    - url: /hacsfiles/mushroom-cards/mushroom.js
-      type: module
-    - url: /hacsfiles/mushroom-themes/mushroom-themes.js
-      type: module
-    - url: /hacsfiles/mushroom-better-sliders/mushroom-better-sliders.js
-      type: module
-
-    # ---- INTEGRATIONS / CAMERAS ----
-    - url: /hacsfiles/hikvision-card/hikvision-card.js
-      type: module
+# Update Lovelace configuration reference
+lovelace: !include lovelace/config.yaml
